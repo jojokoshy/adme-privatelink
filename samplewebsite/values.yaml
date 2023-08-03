@@ -6,7 +6,7 @@ replicaCount: 2
 
 image:
   repository: jkadme.azurecr.io/privatelinktest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
