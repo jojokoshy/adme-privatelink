@@ -5,10 +5,10 @@
 replicaCount: 2
 
 image:
-  repository: nginx
+  repository: jkadme.azurecr.io/privatelinktest
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -42,7 +42,7 @@ service:
 
 ingress:
   enabled: true
-  className: ""
+  className: "nginx"
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
@@ -54,7 +54,9 @@ ingress:
   tls: 
   - secretName: ingresstls
     hosts:
-     - admev2-int.api-internal.com
+      - admev2-int.api-internal.com
+  #  - hosts:
+  #     - admev2-int.api-internal.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

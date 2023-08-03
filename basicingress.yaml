@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: basicnginx
+  name: basicnginx
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: basicnginx
+  type: LoadBalancer
+status:
+  loadBalancer: {}
