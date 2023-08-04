@@ -36,9 +36,9 @@ spec:
           env:
           - name: APP_CONFIG_CONNECTION
             valueFrom:
-            secretKeyRef:
-              name: {{ include "samplewebsite.fullname" . }}
-              key: APP_CONFIG_CONNECTION
+              secretKeyRef:
+                name: {{ include "samplewebsite.fullname" . }}
+                key: APP_CONFIG_CONNECTION
           - name: KEY_VAULT_NAME
             value: adme-we-kv
           ports:
