@@ -1,0 +1,11 @@
+10.2.4.113
+
+kubectl set image deployment/samplesite-samplewebsite samplewebsite=jkadme.azurecr.io/privatelinktest:latest
+helm delete samplesite
+sudo docker pull jojokoshy/privatelinktest:8
+sudo docker tag jojokoshy/privatelinktest:8 jkadme.azurecr.io/privatelinktest:8
+az login --identity
+sudo az acr login -n jkadme
+sudo docker push jkadme.azurecr.io/privatelinktest:8
+helm install samplesite samplewebsite/
+sudo docker images rm 
